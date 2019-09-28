@@ -59,7 +59,7 @@ class Application
 	 */
 	public function execute(\Koala\Core\Router $router) {
 		if (empty($router)) {
-			throw new UrlNotFoundException(__METHOD__ . " router can't be null ", ErrorCode::INVALID_PARAM);
+			throw new UrlNotFoundException(__METHOD__ . " router can't be null ", ErrorCode::URL_NOT_FOUND);
 		}
 		$modulePath = APP_PATH . DS . "modules" . DS;
 		if (empty($router->module)) {

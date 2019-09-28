@@ -19,10 +19,7 @@ class IndexController extends BaseController
 	}
 
 	public function whoamiAction() {
-		$data = [
-			'hello' => __METHOD__,
-		];
-		$this->render('index/index', $data);
+		$this->jsonOut(0, 'ok', __METHOD__);
 		return false;
 	}
 }

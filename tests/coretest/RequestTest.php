@@ -53,6 +53,28 @@ class RequestTest extends TestCase
 		// load bootstrap class
 		$app = new \Koala\Core\Application();
 		// 模拟请求的路径
+		Request::getInstance()->setRequestUri("/");
+		$app->bootstrap();
+		$app->run();
+	}
+
+	public function testIndexPhp() {
+		echo php_sapi_name() . PHP_EOL;
+		$this->assertEquals("cli", php_sapi_name());
+		// load bootstrap class
+		$app = new \Koala\Core\Application();
+		// 模拟请求的路径
+		Request::getInstance()->setRequestUri("/index.php/me");
+		$app->bootstrap();
+		$app->run();
+	}
+
+	public function testApiIndex() {
+		echo php_sapi_name() . PHP_EOL;
+		$this->assertEquals("cli", php_sapi_name());
+		// load bootstrap class
+		$app = new \Koala\Core\Application();
+		// 模拟请求的路径
 		Request::getInstance()->setRequestUri("/api/");
 		$app->bootstrap();
 		$app->run();
@@ -75,7 +97,7 @@ class RequestTest extends TestCase
 		// load bootstrap class
 		$app = new \Koala\Core\Application();
 		// 模拟请求的路径
-		Request::getInstance()->setRequestUri("/12345");
+		Request::getInstance()->setRequestUri("/12345?debug=1");
 		$app->bootstrap();
 		$app->run();
 	}
