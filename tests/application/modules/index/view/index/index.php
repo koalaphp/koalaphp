@@ -1,0 +1,1 @@
+hello <?= isset($hello) ?  $hello : '' ?>
